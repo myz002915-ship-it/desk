@@ -19,6 +19,7 @@ public static class UpdateInstaller
             throw new InvalidOperationException("更新安装包必须位于安装目录之外。");
         if (!Directory.Exists(directory) || Path.GetFileName(installer) != release.FileName)
             throw new InvalidDataException("安装目录或更新安装包路径无效。");
+        InstallerSignature.VerifyIfRequired(installer);
         await using (var stream = new FileStream(installer, FileMode.Open, FileAccess.Read, FileShare.Read, 65536, useAsync: true))
         {
             if (stream.Length != release.Size || !Convert.ToHexString(await SHA256.HashDataAsync(stream, token).ConfigureAwait(false))

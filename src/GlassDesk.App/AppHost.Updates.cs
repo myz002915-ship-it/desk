@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
@@ -17,14 +17,13 @@ internal sealed partial class AppHost
     private UpdateWindow? _updateWindow;
     private bool _checkingUpdate;
 
-    internal static Version ProductVersion => Version.TryParse(
-        typeof(AppHost).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+')[0].Split('-')[0], out var version)
-        ? new Version(version.Major, version.Minor, Math.Max(0, version.Build)) : new Version(0, 2, 9);
+    internal static Version ProductVersion => Version.TryParse(AppInfo.Version, out var version)
+        ? new Version(version.Major, version.Minor, Math.Max(0, version.Build)) : new Version(1, 0, 1);
 
     private void InitializeUpdates()
     {
         _settings!.CheckForUpdatesRequested += async (_, _) => await CheckUpdatesAsync(manual: true);
-        _settings.ShowUpdateStatus(ProductVersion.ToString(), "启动时会自动检查新版本，也可以手动检查。");
+        _settings.ShowUpdateStatus(AppInfo.Version, $"当前版本 {AppInfo.FullLabel}。启动时会自动检查新版本，也可以手动检查。");
         // Only the installed normal application contacts the service automatically; build/acceptance copies do not.
         if (_options.Sample == Startup.AppearanceSample.None && new InstallationLocator().Inspect(Environment.ProcessPath ?? string.Empty).State == InstallationState.VerifiedInstalled)
             _application.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(async () => await CheckUpdatesAsync(manual: false)));
@@ -57,7 +56,7 @@ internal sealed partial class AppHost
         if (_shuttingDown || _checkingUpdate) return;
         if (_updateWindow is not null) { if (manual) _updateWindow.Activate(); return; }
         _checkingUpdate = true;
-        _settings?.ShowUpdateStatus(ProductVersion.ToString(), "正在检查更新…", checking: true);
+        _settings?.ShowUpdateStatus(AppInfo.Version, "正在检查更新…", checking: true);
         try
         {
             var client = CreateUpdateClient();
@@ -65,10 +64,10 @@ internal sealed partial class AppHost
             if (_shuttingDown || _updateLifetime.IsCancellationRequested) return;
             if (release is null)
             {
-                _settings?.ShowUpdateStatus(ProductVersion.ToString(), "当前已是最新正式版本。");
+                _settings?.ShowUpdateStatus(AppInfo.Version, "当前已是最新正式版本。");
                 return;
             }
-            _settings?.ShowUpdateStatus(ProductVersion.ToString(), $"发现新版本 {release.Version}。");
+            _settings?.ShowUpdateStatus(AppInfo.Version, $"发现新版本 {release.Version}。");
             var installation = new InstallationLocator().Inspect(Environment.ProcessPath ?? string.Empty);
             _updateWindow = new UpdateWindow(release, installation.State == InstallationState.VerifiedInstalled,
                 (progress, token) => InstallUpdateAsync(client, release, progress, token));
@@ -78,11 +77,11 @@ internal sealed partial class AppHost
         }
         catch (OperationCanceledException)
         {
-            if (!_shuttingDown) _settings?.ShowUpdateStatus(ProductVersion.ToString(), "检查更新已取消或超时，请稍后重试。");
+            if (!_shuttingDown) _settings?.ShowUpdateStatus(AppInfo.Version, "检查更新已取消或超时，请稍后重试。");
         }
         catch (Exception ex)
         {
-            if (!_shuttingDown) _settings?.ShowUpdateStatus(ProductVersion.ToString(), "无法检查更新，请确认网络连接后重试。" + (manual ? "\n" + ex.Message : string.Empty));
+            if (!_shuttingDown) _settings?.ShowUpdateStatus(AppInfo.Version, "无法检查更新，请确认网络连接后重试。" + (manual ? "\n" + ex.Message : string.Empty));
         }
         finally { _checkingUpdate = false; }
     }

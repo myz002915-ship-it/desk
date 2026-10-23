@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  workflow_dispatch:
+
+# Cancel superseded runs on the same ref to keep the queue short.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+          dotnet-quality: daily
+
+      - name: Restore
+        run: dotnet restore GlassDesk.slnx
+
+      - name: Build (Release, warnings as errors)
+        run: dotnet build GlassDesk.slnx -c Release --no-restore
+
+      - name: Core unit tests
+        run: dotnet test tests/GlassDesk.Core.Tests/GlassDesk.Core.Tests.csproj -c Release --no-build --logger "console;verbosity=normal"
+
+  smoke:
+    # UpdateAcceptance walks the live GitHub Releases API; keep it as a
+    # scheduled/manual smoke test so CI stays independent of release content.
+    runs-on: windows-latest
+    if: github.event_name == 'workflow_dispatch'
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+          dotnet-quality: daily
+      - name: Restore
+        run: dotnet restore tests/GlassDesk.UpdateAcceptance/GlassDesk.UpdateAcceptance.csproj
+      - name: Build
+        run: dotnet build tests/GlassDesk.UpdateAcceptance/GlassDesk.UpdateAcceptance.csproj -c Release --no-restore
+      - name: Run update acceptance against the public release feed
+        run: dotnet run --project tests/GlassDesk.UpdateAcceptance/GlassDesk.UpdateAcceptance.csproj -c Release --no-build
