@@ -360,6 +360,7 @@ internal sealed partial class AppHost : IDisposable
         _settings.BindPrimaryDisplay(primaryDisplay);
 
         _settings.AttachDataStore(_data!, _loadReport);
+        _settings.DiagnosticsExportRequested += async (_, _) => await ExportDiagnosticsAsync();
         _settings.AttachStartupRegistration(
             new StartupRegistration(),
             Environment.ProcessPath ?? string.Empty);
