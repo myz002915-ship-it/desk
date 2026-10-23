@@ -98,8 +98,26 @@ public sealed partial class UpdateClient
             var installed = new Version(current.Major, current.Minor, Math.Max(0, current.Build));
             if (version <= installed) return null;
             var fileName = $"GlassDesk-{version}-win-x64-Setup.exe";
-            var assets = root.GetProperty("assets").EnumerateArray()
-                .Where(asset => asset.GetProperty("name").GetString() == fileName).ToArray();
+            var page = root.GetProperty("html_url").GetString() ?? string.Empty;
+            if (page != $"https://github.com/{repository}/releases/tag/{tag}")
+                throw new InvalidDataException("更新地址不属于配置的发布仓库。");
+            var notes = root.TryGetProperty("body", out var body) ? body.GetString() ?? string.Empty : string.Empty;
+            if (notes.Length > 12000) notes = notes[..12000];
+            var allAssets = root.GetProperty("assets").EnumerateArray().ToArray();
+            var assets = allAssets.Where(asset => asset.GetProperty("name").GetString() == fileName).ToArray();
+            if (assets.Length == 0)
+            {
+                // An installer published under an unexpected name is a publication mistake worth
+                // reporting; a release with no installer at all is announced on the release page
+                // because GlassDesk hands its installer out through its own download page.
+                var prefix = $"GlassDesk-{version}-win-";
+                if (allAssets.Any(asset => asset.TryGetProperty("name", out var name)
+                    && name.GetString() is { } text
+                    && text.StartsWith(prefix, StringComparison.Ordinal)))
+                    throw new InvalidDataException("此版本没有提供 Windows x64 安装包。");
+                return new UpdateRelease(version, fileName, new Uri(page), string.Empty, 0, notes, new Uri(page),
+                    string.Empty, ManualDownloadOnly: true);
+            }
             if (assets.Length != 1) throw new InvalidDataException("此版本没有唯一的 Windows x64 安装包。");
             var asset = assets[0];
             var size = asset.GetProperty("size").GetInt64();
@@ -121,13 +139,10 @@ public sealed partial class UpdateClient
                 checksumUrl = expectedSums;
             }
             var url = asset.GetProperty("browser_download_url").GetString();
-            var expected = $"https://github.com/{repository}/releases/download/{tag}/{fileName}";
-            var page = root.GetProperty("html_url").GetString();
-            if (url != expected || page != $"https://github.com/{repository}/releases/tag/{tag}")
+            if (url != $"https://github.com/{repository}/releases/download/{tag}/{fileName}")
                 throw new InvalidDataException("更新地址不属于配置的发布仓库。");
-            var notes = root.TryGetProperty("body", out var body) ? body.GetString() ?? string.Empty : string.Empty;
             return new UpdateRelease(version, fileName, new Uri(url), digest.Length == 71 ? digest[7..].ToLowerInvariant() : string.Empty,
-                size, notes.Length > 12000 ? notes[..12000] : notes, new Uri(page!), checksumUrl);
+                size, notes, new Uri(page), checksumUrl);
         }
         catch (Exception ex) when (ex is JsonException or KeyNotFoundException or InvalidOperationException or FormatException or OverflowException)
         {
@@ -138,6 +153,8 @@ public sealed partial class UpdateClient
     public async Task<string> DownloadAsync(UpdateRelease release, string cacheRoot, IProgress<int>? progress, CancellationToken token)
     {
         ArgumentNullException.ThrowIfNull(release);
+        if (release.ManualDownloadOnly)
+            throw new InvalidDataException("此版本不提供自动安装，请从发布页手动下载安装包。");
         if (release.DownloadUrl.AbsoluteUri != $"https://github.com/{_repository}/releases/download/v{release.Version}/{release.FileName}"
             && release.DownloadUrl.AbsoluteUri != $"https://github.com/{_repository}/releases/download/{release.Version}/{release.FileName}")
             throw new InvalidDataException("更新下载地址无效。");
@@ -199,6 +216,7 @@ public sealed partial class UpdateClient
 
     internal static void ValidateInstaller(UpdateRelease release)
     {
+        if (release.ManualDownloadOnly) return;
         if (!StableVersionPattern().IsMatch(release.Version.ToString())
             || release.FileName != $"GlassDesk-{release.Version}-win-x64-Setup.exe"
             || (!DigestPattern().IsMatch("sha256:" + release.Sha256) && release.ChecksumUrl.Length == 0)

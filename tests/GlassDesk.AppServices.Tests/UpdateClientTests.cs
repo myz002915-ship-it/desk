@@ -12,18 +12,19 @@ public sealed class UpdateClientTests
     private static readonly Uri Source = new($"https://api.github.com/repos/{Repository}/releases/latest");
     private static readonly Uri Mirror = new($"https://mirror.example/repos/{Repository}/releases/latest");
 
-    private static string Fixture(string version = "0.2.10", string digest = "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", long size = 4, bool includeSums = false)
+    private static string Fixture(string version = "0.2.10", string digest = "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", long size = 4, bool includeSums = false, bool withInstaller = true)
     {
         var fileName = $"GlassDesk-{version}-win-x64-Setup.exe";
         var sums = includeSums
             ? ",{\"name\":\"SHA256SUMS.txt\",\"state\":\"uploaded\",\"size\":128,\"browser_download_url\":\"https://github.com/"
               + Repository + "/releases/download/v" + version + "/SHA256SUMS.txt\"}"
             : string.Empty;
+        var installer = "{\"name\":\"" + fileName + "\",\"state\":\"uploaded\",\"size\":" + size
+            + ",\"digest\":\"" + digest + "\",\"browser_download_url\":\"https://github.com/" + Repository
+            + "/releases/download/v" + version + "/" + fileName + "\"}" + sums;
         return "{\"tag_name\":\"v" + version + "\",\"draft\":false,\"prerelease\":false,\"body\":\"更新说明\","
             + "\"html_url\":\"https://github.com/" + Repository + "/releases/tag/v" + version + "\","
-            + "\"assets\":[{\"name\":\"" + fileName + "\",\"state\":\"uploaded\",\"size\":" + size
-            + ",\"digest\":\"" + digest + "\",\"browser_download_url\":\"https://github.com/" + Repository
-            + "/releases/download/v" + version + "/" + fileName + "\"}" + sums + "]}";
+            + "\"assets\":[" + (withInstaller ? installer : string.Empty) + "]}";
     }
 
     private const string NoDigest = "\"digest\":\"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"";
@@ -101,6 +102,40 @@ public sealed class UpdateClientTests
     [Fact]
     public void Accepts_an_api_compatible_mirror_for_the_same_repository() =>
         Assert.Equal(new Version(0, 2, 10), UpdateClient.ParseRelease(Fixture(), new Version(0, 2, 9), Mirror)?.Version);
+
+    /// <summary>
+    /// GlassDesk publishes its installer through its own download page, so a newer release
+    /// without an asset must be announced instead of failing the whole check.
+    /// </summary>
+    [Fact]
+    public void Announces_a_release_that_has_no_published_installer()
+    {
+        var release = UpdateClient.ParseRelease(Fixture(version: "1.4.5", withInstaller: false), new Version(1, 4, 0), Source);
+        Assert.NotNull(release);
+        Assert.True(release.ManualDownloadOnly);
+        Assert.Equal(new Version(1, 4, 5), release.Version);
+        Assert.Equal($"https://github.com/{Repository}/releases/tag/v1.4.5", release.ReleasePage.AbsoluteUri);
+        Assert.Equal(release.ReleasePage, release.DownloadUrl);
+        Assert.Equal(0, release.Size);
+        Assert.Empty(release.Sha256);
+        Assert.Equal("更新说明", release.Notes);
+    }
+
+    [Fact]
+    public async Task Manual_download_release_is_never_fetched_by_the_updater()
+    {
+        var release = UpdateClient.ParseRelease(Fixture(version: "1.4.5", withInstaller: false), new Version(1, 4, 0), Source)!;
+        using var http = new HttpClient(new FixtureHandler([]));
+        var root = TempRoot();
+        try
+        {
+            var failure = await Assert.ThrowsAsync<InvalidDataException>(() =>
+                new UpdateClient(http, Source).DownloadAsync(release, root, null, CancellationToken.None));
+            Assert.Contains("手动", failure.Message, StringComparison.Ordinal);
+            Assert.Empty(Directory.GetFileSystemEntries(root));
+        }
+        finally { Directory.Delete(root, true); }
+    }
 
     [Fact]
     public void Refuses_sources_that_describe_different_repositories()

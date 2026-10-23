@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
@@ -9,19 +11,25 @@ namespace GlassDesk.App.Updates;
 /// <summary>A single release prompt whose download lifetime belongs to the open window.</summary>
 internal sealed class UpdateWindow : Window, IDisposable
 {
+    private readonly UpdateRelease _release;
     private readonly Func<IProgress<int>, CancellationToken, Task> _install;
     private readonly CancellationTokenSource _cancellation = new();
     private readonly TextBlock _status;
     private readonly ProgressBar _progress;
     private readonly Button _update;
     private readonly Button _later;
+    private readonly bool _manual;
     private bool _busy;
     private bool _handedOff;
     private bool _disposed;
 
     public UpdateWindow(UpdateRelease release, bool canInstall, Func<IProgress<int>, CancellationToken, Task> install)
     {
+        _release = release;
         _install = install;
+        // A release published without a downloadable asset is announced, not installed: the
+        // installer lives on the product download page, so the prompt opens the release page.
+        _manual = release.ManualDownloadOnly;
         Title = "GlassDesk 更新";
         Width = 520; Height = 480; MinWidth = 430; MinHeight = 350;
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -32,20 +40,34 @@ internal sealed class UpdateWindow : Window, IDisposable
         foreach (var height in new[] { GridLength.Auto, GridLength.Auto, new GridLength(1, GridUnitType.Star), GridLength.Auto, GridLength.Auto, GridLength.Auto })
             grid.RowDefinitions.Add(new RowDefinition { Height = height });
         Add(new TextBlock { Text = $"发现新版本 {release.Version}", FontSize = 24, FontWeight = FontWeights.SemiBold }, 0);
-        Add(new TextBlock { Text = "下载完成后会关闭 GlassDesk，安装更新并重新打开。", TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 10, 0, 16) }, 1);
+        Add(new TextBlock
+        {
+            Text = _manual
+                ? "此版本请从发布页下载安装包，下载后手动安装即可。"
+                : "下载完成后会关闭 GlassDesk，安装更新并重新打开。",
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 10, 0, 16),
+        }, 1);
         var notes = new TextBlock { Text = string.IsNullOrWhiteSpace(release.Notes) ? "此版本未提供更新说明。" : release.Notes, TextWrapping = TextWrapping.Wrap, LineHeight = 23 };
         AutomationProperties.SetName(notes, "更新说明");
         Add(new ScrollViewer { Content = notes, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(0, 0, 0, 16) }, 2);
-        _status = new TextBlock { Text = canInstall ? "准备好后点击“立即更新”。" : "当前程序以便携方式运行或安装登记不匹配。请先手动安装正式安装包。", TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 8) };
+        _status = new TextBlock
+        {
+            Text = _manual
+                ? "准备好后点击“打开下载页”。"
+                : canInstall ? "准备好后点击“立即更新”。" : "当前程序以便携方式运行或安装登记不匹配。请先手动安装正式安装包。",
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 0, 0, 8),
+        };
         AutomationProperties.SetName(_status, "更新下载状态");
         Add(_status, 3);
         _progress = new ProgressBar { Minimum = 0, Maximum = 100, Height = 6, Visibility = Visibility.Collapsed, Margin = new Thickness(0, 0, 0, 18) };
         AutomationProperties.SetName(_progress, "更新下载进度");
         Add(_progress, 4);
         var buttons = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Right };
-        _later = Button("稍后", "稍后更新 GlassDesk");
-        _update = Button("立即更新", "立即更新 GlassDesk");
-        _update.IsEnabled = canInstall;
+        _later = Button(_manual ? "关闭" : "稍后", _manual ? "关闭更新提示" : "稍后更新 GlassDesk");
+        _update = Button(_manual ? "打开下载页" : "立即更新", _manual ? "打开更新下载页" : "立即更新 GlassDesk");
+        _update.IsEnabled = _manual || canInstall;
         _later.Click += (_, _) => Close();
         _update.Click += OnUpdateClick;
         buttons.Children.Add(_later); buttons.Children.Add(_update);
@@ -75,6 +97,11 @@ internal sealed class UpdateWindow : Window, IDisposable
 
     private async void OnUpdateClick(object sender, RoutedEventArgs e)
     {
+        if (_manual)
+        {
+            OpenDownloadPage();
+            return;
+        }
         if (_busy) return;
         _busy = true;
         _update.IsEnabled = false;
@@ -109,6 +136,20 @@ internal sealed class UpdateWindow : Window, IDisposable
                 _update.Content = "重试更新";
                 _later.Content = "稍后";
             }
+        }
+    }
+
+    private void OpenDownloadPage()
+    {
+        try
+        {
+            using var _ = Process.Start(new ProcessStartInfo(_release.ReleasePage.AbsoluteUri) { UseShellExecute = true });
+            _status.Text = "已在浏览器中打开下载页，安装完成后关闭此窗口即可。";
+            _update.IsEnabled = false;
+        }
+        catch (Exception ex) when (ex is Win32Exception or InvalidOperationException)
+        {
+            _status.Text = "无法打开浏览器，请手动访问：" + _release.ReleasePage.AbsoluteUri;
         }
     }
 
