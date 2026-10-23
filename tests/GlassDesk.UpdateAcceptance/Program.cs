@@ -149,6 +149,17 @@ internal static class Program
             if (await client.CheckAsync(expectedVersion, CancellationToken.None) is not null)
                 throw new InvalidDataException("The current version was offered an unnecessary reinstall.");
             results.Add("Current version receives no update");
+            if (release.ManualDownloadOnly)
+            {
+                // GlassDesk ships this release through its own download page: the updater must
+                // announce it and send the user to the release page instead of downloading.
+                if (release.ReleasePage.AbsoluteUri != $"https://github.com/everlosttime/glassdesk-updates/releases/tag/v{expectedVersion}")
+                    throw new InvalidDataException($"Announcement points outside the release page: {release.ReleasePage}.");
+                results.Add("Release without a published installer is announced on its release page");
+                File.WriteAllText(Path.Combine(output, "network-report.json"), JsonSerializer.Serialize(new { passed = true, results, manualDownloadOnly = true }, new JsonSerializerOptions { WriteIndented = true }));
+                Console.WriteLine("PASS: anonymous GitHub release check announces a manual-download release");
+                return 0;
+            }
             var downloaded = await client.DownloadAsync(release, Path.Combine(output, "downloads"), null, CancellationToken.None);
             using var expected = File.OpenRead(expectedInstaller);
             using var actual = File.OpenRead(downloaded);
