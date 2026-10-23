@@ -1,0 +1,60 @@
+{
+    "schemaVersion":  1,
+    "status":  "Passed",
+    "commit":  "29bdd7b8f0498482cd0864f8cc8f6fb7d4e6d32c",
+    "dirty":  true,
+    "startedAtUtc":  "2026-10-23T15:11:41.9532687Z",
+    "finishedAtUtc":  "2026-10-23T15:12:44.8240034Z",
+    "operatingSystem":  "Microsoft Windows NT 10.0.26200.0",
+    "powershellVersion":  "5.1.26100.8655",
+    "driver":  "build/package.ps1; static verifier does not launch installers",
+    "dataRoot":  "D:\\zhou\\豆包\\deepseek\\glassdesk\\artifacts\\temp-d\\GlassDesk-package-selftest-dce29100a6ad4caa9f60b851e54729f7",
+    "stagingDirectory":  "D:\\zhou\\豆包\\deepseek\\glassdesk\\artifacts\\publish\\phase7-package-dce29100a6ad4caa9f60b851e54729f7",
+    "packageDirectory":  "D:\\zhou\\豆包\\deepseek\\glassdesk\\artifacts\\package\\GlassDesk-1.4.1-win-x64-dce29100a6ad4caa9f60b851e54729f7",
+    "artifacts":  [
+                      {
+                          "relativePath":  "build-report.json",
+                          "length":  2013,
+                          "sha256":  "4b7c054ed6c1ecd157f1ea4aeea8da520688aae2a16b00fdd35de245a4b73819"
+                      },
+                      {
+                          "relativePath":  "GlassDesk-1.4.1-win-x64.zip",
+                          "length":  80202049,
+                          "sha256":  "f00e4af0a21515fdf9417a4e714145eae2bfd8eac8716e897b3318ea6a2b1599"
+                      },
+                      {
+                          "relativePath":  "GlassDesk-1.4.1-win-x64-Setup.exe",
+                          "length":  60776774,
+                          "sha256":  "878db0d70314f19d1755454c0fd33945c759393ee414d22360b2a39fb4a19583"
+                      },
+                      {
+                          "relativePath":  "INNO-SETUP-LICENSE.txt",
+                          "length":  1521,
+                          "sha256":  "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c"
+                      },
+                      {
+                          "relativePath":  "payload-manifest.json",
+                          "length":  71351,
+                          "sha256":  "0b303fc716412f9fa3509dc1d6988ce7c4a129a2dc57287fad74897942279755"
+                      },
+                      {
+                          "relativePath":  "SHA256SUMS.json",
+                          "length":  1575,
+                          "sha256":  "48b07c741dd2a6d103a24facb0fad120eaf00e4b7fcc081737f41e04d6e8c767"
+                      },
+                      {
+                          "relativePath":  "toolchain.json",
+                          "length":  955,
+                          "sha256":  "33bf25b0294d3fbdcb43e36aca53a43d7d22b9e09ddf2d420b352fde6ce246a2"
+                      }
+                  ],
+    "counts":  {
+                   "Passed":  1,
+                   "Failed":  0,
+                   "Blocked":  0,
+                   "NotRun":  0,
+                   "Skipped":  0
+               },
+    "exitCode":  0,
+    "error":  null
+}

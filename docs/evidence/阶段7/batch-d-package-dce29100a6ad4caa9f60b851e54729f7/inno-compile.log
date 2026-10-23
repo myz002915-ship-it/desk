@@ -1,0 +1,343 @@
+Inno Setup 7 Command-Line Compiler
+Copyright (C) 1997-2026 Jordan Russell. All rights reserved.
+Portions Copyright (C) 2000-2026 Martijn Laan. All rights reserved.
+Portions Copyright (C) 2001-2004 Alex Yackimoff. All rights reserved.
+https://www.innosetup.com
+
+Compiler engine version: Inno Setup 7.1.0
+Non-commercial use only
+
+Preprocessing
+   Reading file: C:\Program Files\Inno Setup 7\ISPPBuiltins.iss
+Parsing [Setup] section, line 20
+Parsing [Setup] section, line 21
+Parsing [Setup] section, line 22
+Parsing [Setup] section, line 23
+Parsing [Setup] section, line 24
+Parsing [Setup] section, line 25
+Parsing [Setup] section, line 26
+Parsing [Setup] section, line 27
+Parsing [Setup] section, line 28
+Parsing [Setup] section, line 29
+Parsing [Setup] section, line 30
+Parsing [Setup] section, line 31
+Parsing [Setup] section, line 32
+Parsing [Setup] section, line 33
+Parsing [Setup] section, line 34
+Parsing [Setup] section, line 35
+Parsing [Setup] section, line 36
+Parsing [Setup] section, line 37
+Parsing [Setup] section, line 38
+Parsing [Setup] section, line 39
+Parsing [Setup] section, line 40
+Parsing [Setup] section, line 41
+Parsing [Setup] section, line 42
+Parsing [Setup] section, line 43
+Parsing [Setup] section, line 44
+Reading file (WizardImageFile)
+Reading file (WizardSmallImageFile)
+Preparing Setup program executable
+   Verification successful
+   Updating icons (Setup.e64)
+   Updating version info (Setup.e64)
+Determining language code pages
+Parsing [Languages] section, line 47
+   Reading file: C:\Program Files\Inno Setup 7\Languages\ChineseSimplified.isl
+   Messages in script file
+Reading default messages from Default.isl
+Parsing [Languages] section, line 47
+   Reading file: C:\Program Files\Inno Setup 7\Languages\ChineseSimplified.isl
+Parsing [LangOptions], [Messages], and [CustomMessages] sections
+   Messages in script file
+Reading [Code] section
+Parsing [Tasks] section, line 50
+Parsing [Icons] section, line 56
+Parsing [Icons] section, line 57
+Parsing [Registry] section, line 60
+Parsing [Files] section, line 53
+Creating setup files
+   Verification successful
+   Updating icons (Setup.exe)
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Accessibility.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\clretwrc.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\clrgc.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\clrgcexp.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\clrjit.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\coreclr.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\createdump.exe
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\D3DCompiler_47_cor3.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\DirectWriteForwarder.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.AppServices.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.Core.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.deps.json
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.Dock.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.exe
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.ico
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.Launcher.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.Platform.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.runtimeconfig.json
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.Settings.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.UI.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\hostfxr.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\hostpolicy.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\INNO-SETUP-LICENSE.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\LICENSE.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.CSharp.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.DiaSymReader.Native.amd64.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.VisualBasic.Core.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.VisualBasic.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.Win32.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.Win32.Registry.AccessControl.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.Win32.Registry.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.Win32.SystemEvents.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\Microsoft.Windows.SDK.NET.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\mscordaccore.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\mscordaccore_amd64_amd64_10.0.1226.42308.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\mscordbi.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\mscorlib.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\mscorrc.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\msquic.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\netstandard.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\NOTICE.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PenImc_cor3.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationCore.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework-SystemCore.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework-SystemData.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework-SystemDrawing.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework-SystemXml.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework-SystemXmlLinq.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.Aero.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.Aero2.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.AeroLite.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.Classic.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.Fluent.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.Luna.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationFramework.Royale.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationNative_cor3.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\PresentationUI.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\ReachFramework.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\RELEASE-NOTES.md
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.AppContext.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Buffers.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.CodeDom.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Collections.Concurrent.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Collections.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Collections.Immutable.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Collections.NonGeneric.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Collections.Specialized.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ComponentModel.Annotations.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ComponentModel.DataAnnotations.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ComponentModel.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ComponentModel.EventBasedAsync.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ComponentModel.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ComponentModel.TypeConverter.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Configuration.ConfigurationManager.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Configuration.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Console.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Core.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Data.Common.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Data.DataSetExtensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Data.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.Contracts.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.Debug.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.DiagnosticSource.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.EventLog.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.EventLog.Messages.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.FileVersionInfo.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.PerformanceCounter.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.Process.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.StackTrace.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.TextWriterTraceListener.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.Tools.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.TraceSource.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Diagnostics.Tracing.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.DirectoryServices.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Drawing.Common.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Drawing.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Drawing.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Dynamic.Runtime.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Formats.Asn1.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Formats.Nrbf.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Formats.Tar.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Globalization.Calendars.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Globalization.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Globalization.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Compression.Brotli.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Compression.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Compression.FileSystem.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Compression.Native.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Compression.ZipFile.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.FileSystem.AccessControl.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.FileSystem.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.FileSystem.DriveInfo.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.FileSystem.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.FileSystem.Watcher.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.IsolatedStorage.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.MemoryMappedFiles.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Packaging.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Pipelines.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Pipes.AccessControl.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.Pipes.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.IO.UnmanagedMemoryStream.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Linq.AsyncEnumerable.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Linq.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Linq.Expressions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Linq.Parallel.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Linq.Queryable.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Memory.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Http.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Http.Json.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.HttpListener.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Mail.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.NameResolution.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.NetworkInformation.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Ping.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Quic.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Requests.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Security.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.ServerSentEvents.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.ServicePoint.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.Sockets.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.WebClient.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.WebHeaderCollection.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.WebProxy.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.WebSockets.Client.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Net.WebSockets.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Numerics.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Numerics.Vectors.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ObjectModel.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Printing.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.CoreLib.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.DataContractSerialization.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.Uri.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.Windows.Core.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.Windows.GdiPlus.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.Xml.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Private.Xml.Linq.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.DispatchProxy.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.Emit.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.Emit.ILGeneration.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.Emit.Lightweight.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.Metadata.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Reflection.TypeExtensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Resources.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Resources.Reader.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Resources.ResourceManager.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Resources.Writer.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.CompilerServices.Unsafe.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.CompilerServices.VisualC.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Handles.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.InteropServices.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.InteropServices.JavaScript.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.InteropServices.RuntimeInformation.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Intrinsics.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Loader.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Numerics.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Serialization.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Serialization.Formatters.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Serialization.Json.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Serialization.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Runtime.Serialization.Xml.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.AccessControl.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Claims.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Algorithms.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Cng.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Csp.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Encoding.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.OpenSsl.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Pkcs.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.ProtectedData.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.X509Certificates.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Cryptography.Xml.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Permissions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Principal.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.Principal.Windows.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Security.SecureString.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ServiceModel.Web.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ServiceProcess.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Text.Encoding.CodePages.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Text.Encoding.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Text.Encoding.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Text.Encodings.Web.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Text.Json.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Text.RegularExpressions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.AccessControl.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Channels.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Overlapped.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Tasks.Dataflow.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Tasks.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Tasks.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Tasks.Parallel.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Thread.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.ThreadPool.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Threading.Timer.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Transactions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Transactions.Local.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.ValueTuple.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Web.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Web.HttpUtility.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Windows.Controls.Ribbon.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Windows.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Windows.Extensions.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Windows.Input.Manipulations.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Windows.Presentation.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Windows.Primitives.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xaml.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.Linq.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.ReaderWriter.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.Serialization.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.XDocument.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.XmlDocument.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.XmlSerializer.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.XPath.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\System.Xml.XPath.XDocument.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\THIRD-PARTY-NOTICES.md
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\ThirdPartyNotices.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\UIAutomationClient.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\UIAutomationClientSideProviders.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\UIAutomationProvider.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\UIAutomationTypes.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\UNICODE-LICENSE.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\update-source.json
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\vcruntime140_cor3.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\WINDOWS-SDK-LICENSE.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\WindowsBase.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\WinRT.Runtime.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\wpfgfx_cor3.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\licenses\AndroidLiquidGlass-LICENSE.txt
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\licenses\AndroidLiquidGlass-NOTICE.md
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\PresentationCore.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\PresentationFramework.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\PresentationUI.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\ReachFramework.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\System.Windows.Controls.Ribbon.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\System.Windows.Input.Manipulations.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\System.Xaml.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\UIAutomationClient.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\UIAutomationClientSideProviders.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\UIAutomationProvider.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\UIAutomationTypes.resources.dll
+   Compressing: \\?\D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\zh-Hans\WindowsBase.resources.dll
+   Compressing Setup program executable
+   Updating version info (Setup.exe)
+   Updating manifest (Setup.exe)
+
+
+Successful compile (36.422 sec). Resulting Setup program filename is:
+D:\zhou\豆包\deepseek\glassdesk\artifacts\package\GlassDesk-1.4.1-win-x64-dce29100a6ad4caa9f60b851e54729f7\GlassDesk-1.4.1-win-x64-Setup.exe

@@ -1,0 +1,24 @@
+acceptanceDataRoot: D:\zhou\豆包\deepseek\glassdesk\artifacts\temp-d\GlassDesk-package-selftest-dce29100a6ad4caa9f60b851e
+54729f7
+== publish self-contained win-x64 (Release) ==
+output: artifacts/publish/phase7-package-dce29100a6ad4caa9f60b851e54729f7
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  GlassDesk.Core -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.Core\bin\Release\net10.0\GlassDesk.Core.dll
+  GlassDesk.Platform -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.Platform\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Platform.dll
+  GlassDesk.AppServices -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.AppServices\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.AppServices.dll
+  GlassDesk.UI -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.UI\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.UI.dll
+  GlassDesk.Dock -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.Dock\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Dock.dll
+  GlassDesk.Launcher -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.Launcher\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Launcher.dll
+  GlassDesk.Settings -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.Settings\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Settings.dll
+  GlassDesk.App -> D:\zhou\豆包\deepseek\glassdesk\src\GlassDesk.App\bin\Release\net10.0-windows10.0.26100.0\win-x64\GlassDesk.dll
+  GlassDesk.App -> D:\zhou\豆包\deepseek\glassdesk\artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\
+
+files: 271
+size:  195.6 MB
+
+executable: artifacts\publish\phase7-package-dce29100a6ad4caa9f60b851e54729f7\GlassDesk.exe
+
+== verify published build ==
+
+Publish succeeded.
