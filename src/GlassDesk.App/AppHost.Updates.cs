@@ -34,14 +34,22 @@ internal sealed partial class AppHost
     {
         const string defaultSource = "https://api.github.com/repos/everlosttime/glassdesk-updates/releases/latest";
         var file = Path.Combine(AppContext.BaseDirectory, "update-source.json");
-        var source = defaultSource;
+        var sources = new List<Uri> { new(defaultSource) };
         if (File.Exists(file))
         {
             if (new FileInfo(file).Length > 8192) throw new InvalidDataException("更新源配置过大。");
             using var document = JsonDocument.Parse(File.ReadAllText(file));
-            source = document.RootElement.GetProperty("releasesApi").GetString() ?? throw new InvalidDataException("更新源未配置。");
+            var root = document.RootElement;
+            sources[0] = new Uri(root.GetProperty("releasesApi").GetString() ?? throw new InvalidDataException("更新源未配置。"));
+            // Optional API-compatible mirrors, tried in order when the primary source fails.
+            if (root.TryGetProperty("mirrors", out var mirrors) && mirrors.ValueKind == JsonValueKind.Array)
+                sources.AddRange(mirrors.EnumerateArray()
+                    .Select(entry => entry.GetString() ?? string.Empty)
+                    .Where(entry => entry.Length != 0)
+                    .Select(entry => new Uri(entry)));
         }
-        return new UpdateClient(_updateHttp, new Uri(source));
+        var cache = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GlassDesk", "Updates");
+        return new UpdateClient(_updateHttp, sources, cache);
     }
 
     private async Task CheckUpdatesAsync(bool manual)
