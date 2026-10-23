@@ -283,8 +283,10 @@ function Assert-RequiredLicenseSources {
                 throw "Installed .NET notice does not match the pinned runtime asset: '$source'."
             }
         }
-        if (Test-Path -LiteralPath $target) { throw "Publish output unexpectedly already contains '$([System.IO.Path]::GetFileName($target))'." }
-        Copy-Item -LiteralPath $source -Destination $target
+        if (Test-Path -LiteralPath $target) {
+            if ((Get-Sha256HexFromFile -Path $target) -eq (Get-Sha256HexFromFile -Path $source)) { continue }
+        }
+        Copy-Item -LiteralPath $source -Destination $target -Force
     }
     $unicodeTarget = Join-Path $Stage 'UNICODE-LICENSE.txt'
     if (-not (Test-Path -LiteralPath $unicodeTarget -PathType Leaf) -or

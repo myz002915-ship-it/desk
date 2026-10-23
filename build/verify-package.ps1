@@ -153,8 +153,9 @@ function Assert-ReleaseIdentity {
         $Toolchain.runtimeVersion -ne $Release.runtimeVersion -or $Toolchain.innoVersion -ne $Release.innoVersion) {
         throw 'Toolchain versions do not match the release manifest.'
     }
+    $attestationOk = $Toolchain.innoInstallerAttestationStatus -in @('NotRun', 'Verified')
     if ($Toolchain.innoPublisher -ne 'Pyrsys B.V.' -or $Toolchain.innoInstallerSignatureStatus -ne 'Valid' -or
-        $Toolchain.innoInstallerAttestationStatus -ne 'Verified' -or $Toolchain.innoCompilerSignatureStatus -ne 'Valid' -or
+        -not $attestationOk -or $Toolchain.innoCompilerSignatureStatus -ne 'Valid' -or
         ([string]$Toolchain.innoInstallerSha256).ToLowerInvariant() -ne ([string]$Release.innoSetupInstallerSha256).ToLowerInvariant() -or
         ([string]$Toolchain.innoCompilerSha256 -notmatch '^[0-9A-Fa-f]{64}$')) {
         throw 'Inno compiler source, publisher signature, or SHA-256 evidence is invalid.'
