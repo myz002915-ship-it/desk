@@ -45,6 +45,9 @@ public partial class SettingsWindow : GlassWindow
     private bool _syncingCategoryFromScroll;
     private bool _sectionNavigationPending;
     private int _sectionNavigationVersion;
+    private bool _restoredRememberedPage;
+    private bool _restoringRememberedPage;
+    private bool _searchFilterSyncing;
 
     public event EventHandler<LauncherSettings>? LauncherSettingsChanged;
 
@@ -108,6 +111,7 @@ public partial class SettingsWindow : GlassWindow
     {
         ArgumentNullException.ThrowIfNull(dataStore);
         _dataStore = dataStore;
+        RestoreRememberedPage();
         LoadDockControls();
         LoadLauncherControls();
         LoadAppearanceControls();
@@ -115,6 +119,35 @@ public partial class SettingsWindow : GlassWindow
         LoadPerformanceControls();
         LoadDesktopStatus();
         RefreshDiagnostics(loadReport);
+    }
+
+    /// <summary>
+    /// 回到上次停留的设置页。没有记忆（首次使用或状态文件缺失）时保持默认选中项。
+    /// </summary>
+    private void RestoreRememberedPage()
+    {
+        if (_dataStore is null || _restoredRememberedPage) return;
+        _restoredRememberedPage = true;
+        var remembered = _dataStore.WindowState.Load();
+        if (string.IsNullOrEmpty(remembered)) return;
+        var index = PlannedPages.ToList().FindIndex(page =>
+            string.Equals(page, remembered, StringComparison.Ordinal));
+        if (index >= 0 && index < _sectionHeadings.Length && index != SettingsPageList.SelectedIndex)
+        {
+            _restoringRememberedPage = true;
+            try { SettingsPageList.SelectedIndex = index; }
+            finally { _restoringRememberedPage = false; }
+            ScrollToSection(_sectionHeadings[index]);
+        }
+    }
+
+    private void RememberCurrentPage()
+    {
+        if (_dataStore is null || !IsLoaded) return;
+        if (SettingsPageList.SelectedIndex is int index && index >= 0 && index < PlannedPages.Count)
+        {
+            _dataStore.WindowState.Save(PlannedPages[index]);
+        }
     }
 
     /// <summary>连接真实当前用户登录项；界面只显示当前进程路径对应的注册状态。</summary>
@@ -293,12 +326,52 @@ public partial class SettingsWindow : GlassWindow
         }
     }
 
+    private void OnSettingsSearchTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (_searchFilterSyncing) return;
+        // 过滤只改可见列表，不改真实页面集合与滚动位置：
+        // 清空搜索框后列表恢复原样，滚动同步继续按真实页面序号工作。
+        var query = SettingsSearchBox.Text.Trim();
+        _searchFilterSyncing = true;
+        try
+        {
+            if (query.Length == 0)
+            {
+                if (PlannedPages.Count != SettingsPageList.Items.Count)
+                    SettingsPageList.ItemsSource = PlannedPages;
+            }
+            else
+            {
+                var matches = PlannedPages.Where(page =>
+                    page.Contains(query, StringComparison.OrdinalIgnoreCase)).ToArray();
+                // 无匹配时保留原列表，避免清空导致用户"丢失"入口。
+                SettingsPageList.ItemsSource = matches.Length > 0 ? matches : PlannedPages;
+            }
+        }
+        finally
+        {
+            _searchFilterSyncing = false;
+        }
+    }
+
+    private void OnSettingsSearchKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+    {
+        if (e.Key == System.Windows.Input.Key.Escape)
+        {
+            SettingsSearchBox.Clear();
+            e.Handled = true;
+        }
+    }
+
     private void OnSettingsPageSelected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
         if (!IsLoaded) return;
         UpdateResetPageButton();
         if (_syncingCategoryFromScroll || SettingsPageList.SelectedIndex < 0) return;
         ScrollToSection(_sectionHeadings[SettingsPageList.SelectedIndex]);
+        // 滚动也会同步选中项；这样任何一次真实的页面切换都会被记录下来，
+        // 由 _restoringRememberedPage 防止恢复过程本身把状态改写一遍。
+        if (!_restoringRememberedPage) RememberCurrentPage();
     }
 
     private void OnSettingsScrollChanged(object sender, System.Windows.Controls.ScrollChangedEventArgs e)

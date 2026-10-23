@@ -36,11 +36,15 @@ public sealed class GlassDeskDataStore
         Library = new AppLibraryStore(paths.AppLibraryFile, timeProvider);
         Layouts = new LayoutStore(paths.DockLayoutFile, paths.LauncherLayoutFile, timeProvider);
         Backup = new BackupService(paths, timeProvider);
+        WindowState = new PageMemoryStore(paths.WindowStateFile, timeProvider);
     }
 
     public AppPaths Paths { get; }
 
     public SettingsStore Settings { get; }
+
+    /// <summary>界面状态（如上次停留的设置页），不属于产品设置文档。</summary>
+    public PageMemoryStore WindowState { get; }
 
     public AppLibraryStore Library { get; }
 

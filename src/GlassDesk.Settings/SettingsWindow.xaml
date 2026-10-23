@@ -141,6 +141,14 @@
               FontSize="12"
               Foreground="{Binding SecondaryForegroundBrush, RelativeSource={RelativeSource AncestorType=Window}}"
               Text="设置分类" />
+          <TextBox x:Name="SettingsSearchBox"
+                   Margin="0,0,0,8"
+                   Padding="6,4"
+                   FontSize="13"
+                   AutomationProperties.Name="搜索设置分类"
+                   ToolTip="输入关键字过滤分类，清除后恢复全部列表"
+                   TextChanged="OnSettingsSearchTextChanged"
+                   KeyDown="OnSettingsSearchKeyDown" />
           <ListBox x:Name="SettingsPageList" SelectedIndex="1" SelectionChanged="OnSettingsPageSelected"
                    ItemsSource="{Binding PlannedPages, RelativeSource={RelativeSource AncestorType=Window}}">
             <ListBox.ItemTemplate>

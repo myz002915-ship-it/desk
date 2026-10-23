@@ -21,6 +21,7 @@ namespace GlassDesk.Core.Serialization;
     ReadCommentHandling = JsonCommentHandling.Skip,
     AllowTrailingCommas = true)]
 [JsonSerializable(typeof(GlassDeskSettings))]
+[JsonSerializable(typeof(GlassDesk.Core.Storage.PageMemory))]
 [JsonSerializable(typeof(AppLibraryData))]
 [JsonSerializable(typeof(DockLayout))]
 [JsonSerializable(typeof(LauncherLayout))]

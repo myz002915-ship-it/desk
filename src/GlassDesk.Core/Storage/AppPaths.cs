@@ -30,6 +30,9 @@ public sealed class AppPaths
 
     public string SettingsFile => Path.Combine(RootDirectory, "settings.json");
 
+    /// <summary>界面状态文档（与产品设置分离，见 <see cref="PageMemoryStore"/>）。</summary>
+    public string WindowStateFile => Path.Combine(RootDirectory, "window-state.json");
+
     public string AppLibraryFile => Path.Combine(RootDirectory, "apps.json");
 
     public string DockLayoutFile => Path.Combine(RootDirectory, "dock-layout.json");
