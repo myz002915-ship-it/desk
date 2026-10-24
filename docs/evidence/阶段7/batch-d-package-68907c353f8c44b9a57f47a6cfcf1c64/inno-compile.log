@@ -1,0 +1,343 @@
+Inno Setup 7 Command-Line Compiler
+Copyright (C) 1997-2026 Jordan Russell. All rights reserved.
+Portions Copyright (C) 2000-2026 Martijn Laan. All rights reserved.
+Portions Copyright (C) 2001-2004 Alex Yackimoff. All rights reserved.
+https://www.innosetup.com
+
+Compiler engine version: Inno Setup 7.1.0
+Non-commercial use only
+
+Preprocessing
+   Reading file: C:\Program Files\Inno Setup 7\ISPPBuiltins.iss
+Parsing [Setup] section, line 20
+Parsing [Setup] section, line 21
+Parsing [Setup] section, line 22
+Parsing [Setup] section, line 23
+Parsing [Setup] section, line 24
+Parsing [Setup] section, line 25
+Parsing [Setup] section, line 26
+Parsing [Setup] section, line 27
+Parsing [Setup] section, line 28
+Parsing [Setup] section, line 29
+Parsing [Setup] section, line 30
+Parsing [Setup] section, line 31
+Parsing [Setup] section, line 32
+Parsing [Setup] section, line 33
+Parsing [Setup] section, line 34
+Parsing [Setup] section, line 35
+Parsing [Setup] section, line 36
+Parsing [Setup] section, line 37
+Parsing [Setup] section, line 38
+Parsing [Setup] section, line 39
+Parsing [Setup] section, line 40
+Parsing [Setup] section, line 41
+Parsing [Setup] section, line 42
+Parsing [Setup] section, line 43
+Parsing [Setup] section, line 44
+Reading file (WizardImageFile)
+Reading file (WizardSmallImageFile)
+Preparing Setup program executable
+   Verification successful
+   Updating icons (Setup.e64)
+   Updating version info (Setup.e64)
+Determining language code pages
+Parsing [Languages] section, line 47
+   Reading file: C:\Program Files\Inno Setup 7\Languages\ChineseSimplified.isl
+   Messages in script file
+Reading default messages from Default.isl
+Parsing [Languages] section, line 47
+   Reading file: C:\Program Files\Inno Setup 7\Languages\ChineseSimplified.isl
+Parsing [LangOptions], [Messages], and [CustomMessages] sections
+   Messages in script file
+Reading [Code] section
+Parsing [Tasks] section, line 50
+Parsing [Icons] section, line 56
+Parsing [Icons] section, line 57
+Parsing [Registry] section, line 60
+Parsing [Files] section, line 53
+Creating setup files
+   Verification successful
+   Updating icons (Setup.exe)
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Accessibility.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\clretwrc.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\clrgc.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\clrgcexp.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\clrjit.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\coreclr.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\createdump.exe
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\D3DCompiler_47_cor3.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\DirectWriteForwarder.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.AppServices.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.Core.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.deps.json
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.Dock.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.exe
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.ico
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.Launcher.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.Platform.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.runtimeconfig.json
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.Settings.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.UI.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\hostfxr.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\hostpolicy.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\INNO-SETUP-LICENSE.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\LICENSE.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.CSharp.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.DiaSymReader.Native.amd64.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.VisualBasic.Core.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.VisualBasic.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.Win32.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.Win32.Registry.AccessControl.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.Win32.Registry.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.Win32.SystemEvents.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\Microsoft.Windows.SDK.NET.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\mscordaccore.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\mscordaccore_amd64_amd64_10.0.1226.42308.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\mscordbi.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\mscorlib.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\mscorrc.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\msquic.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\netstandard.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\NOTICE.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PenImc_cor3.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationCore.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework-SystemCore.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework-SystemData.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework-SystemDrawing.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework-SystemXml.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework-SystemXmlLinq.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.Aero.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.Aero2.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.AeroLite.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.Classic.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.Fluent.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.Luna.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationFramework.Royale.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationNative_cor3.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\PresentationUI.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\ReachFramework.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\RELEASE-NOTES.md
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.AppContext.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Buffers.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.CodeDom.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Collections.Concurrent.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Collections.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Collections.Immutable.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Collections.NonGeneric.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Collections.Specialized.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ComponentModel.Annotations.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ComponentModel.DataAnnotations.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ComponentModel.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ComponentModel.EventBasedAsync.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ComponentModel.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ComponentModel.TypeConverter.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Configuration.ConfigurationManager.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Configuration.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Console.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Core.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Data.Common.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Data.DataSetExtensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Data.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.Contracts.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.Debug.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.DiagnosticSource.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.EventLog.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.EventLog.Messages.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.FileVersionInfo.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.PerformanceCounter.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.Process.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.StackTrace.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.TextWriterTraceListener.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.Tools.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.TraceSource.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Diagnostics.Tracing.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.DirectoryServices.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Drawing.Common.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Drawing.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Drawing.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Dynamic.Runtime.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Formats.Asn1.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Formats.Nrbf.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Formats.Tar.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Globalization.Calendars.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Globalization.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Globalization.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Compression.Brotli.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Compression.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Compression.FileSystem.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Compression.Native.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Compression.ZipFile.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.FileSystem.AccessControl.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.FileSystem.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.FileSystem.DriveInfo.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.FileSystem.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.FileSystem.Watcher.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.IsolatedStorage.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.MemoryMappedFiles.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Packaging.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Pipelines.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Pipes.AccessControl.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.Pipes.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.IO.UnmanagedMemoryStream.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Linq.AsyncEnumerable.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Linq.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Linq.Expressions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Linq.Parallel.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Linq.Queryable.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Memory.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Http.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Http.Json.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.HttpListener.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Mail.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.NameResolution.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.NetworkInformation.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Ping.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Quic.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Requests.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Security.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.ServerSentEvents.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.ServicePoint.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.Sockets.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.WebClient.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.WebHeaderCollection.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.WebProxy.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.WebSockets.Client.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Net.WebSockets.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Numerics.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Numerics.Vectors.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ObjectModel.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Printing.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.CoreLib.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.DataContractSerialization.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.Uri.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.Windows.Core.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.Windows.GdiPlus.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.Xml.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Private.Xml.Linq.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.DispatchProxy.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.Emit.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.Emit.ILGeneration.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.Emit.Lightweight.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.Metadata.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Reflection.TypeExtensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Resources.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Resources.Reader.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Resources.ResourceManager.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Resources.Writer.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.CompilerServices.Unsafe.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.CompilerServices.VisualC.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Handles.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.InteropServices.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.InteropServices.JavaScript.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.InteropServices.RuntimeInformation.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Intrinsics.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Loader.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Numerics.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Serialization.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Serialization.Formatters.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Serialization.Json.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Serialization.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Runtime.Serialization.Xml.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.AccessControl.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Claims.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Algorithms.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Cng.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Csp.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Encoding.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.OpenSsl.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Pkcs.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.ProtectedData.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.X509Certificates.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Cryptography.Xml.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Permissions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Principal.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.Principal.Windows.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Security.SecureString.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ServiceModel.Web.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ServiceProcess.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Text.Encoding.CodePages.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Text.Encoding.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Text.Encoding.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Text.Encodings.Web.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Text.Json.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Text.RegularExpressions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.AccessControl.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Channels.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Overlapped.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Tasks.Dataflow.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Tasks.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Tasks.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Tasks.Parallel.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Thread.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.ThreadPool.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Threading.Timer.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Transactions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Transactions.Local.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.ValueTuple.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Web.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Web.HttpUtility.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Windows.Controls.Ribbon.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Windows.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Windows.Extensions.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Windows.Input.Manipulations.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Windows.Presentation.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Windows.Primitives.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xaml.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.Linq.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.ReaderWriter.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.Serialization.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.XDocument.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.XmlDocument.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.XmlSerializer.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.XPath.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\System.Xml.XPath.XDocument.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\THIRD-PARTY-NOTICES.md
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\ThirdPartyNotices.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\UIAutomationClient.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\UIAutomationClientSideProviders.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\UIAutomationProvider.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\UIAutomationTypes.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\UNICODE-LICENSE.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\update-source.json
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\vcruntime140_cor3.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\WINDOWS-SDK-LICENSE.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\WindowsBase.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\WinRT.Runtime.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\wpfgfx_cor3.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\licenses\AndroidLiquidGlass-LICENSE.txt
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\licenses\AndroidLiquidGlass-NOTICE.md
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\PresentationCore.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\PresentationFramework.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\PresentationUI.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\ReachFramework.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\System.Windows.Controls.Ribbon.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\System.Windows.Input.Manipulations.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\System.Xaml.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\UIAutomationClient.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\UIAutomationClientSideProviders.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\UIAutomationProvider.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\UIAutomationTypes.resources.dll
+   Compressing: \\?\C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\zh-Hans\WindowsBase.resources.dll
+   Compressing Setup program executable
+   Updating version info (Setup.exe)
+   Updating manifest (Setup.exe)
+
+
+Successful compile (34.750 sec). Resulting Setup program filename is:
+C:\Users\zhou\Projects\desk\artifacts\package\GlassDesk-1.5.0-win-x64-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk-1.5.0-win-x64-Setup.exe

@@ -1,0 +1,30 @@
+acceptanceDataRoot: C:\Users\zhou\AppData\Local\Temp\GlassDesk-package-selftest-68907c353f8c44b9a57f47a6cfcf1c64
+== publish self-contained win-x64 (Release) ==
+output: artifacts/publish/phase7-package-68907c353f8c44b9a57f47a6cfcf1c64
+  正在确定要还原的项目…
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.Platform\GlassDesk.Platform.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.Dock\GlassDesk.Dock.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.UI\GlassDesk.UI.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.App\GlassDesk.App.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.AppServices\GlassDesk.AppServices.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.Settings\GlassDesk.Settings.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.Launcher\GlassDesk.Launcher.csproj (用时 6.35 秒)。
+  已还原 C:\Users\zhou\Projects\desk\src\GlassDesk.Core\GlassDesk.Core.csproj (用时 6.35 秒)。
+  GlassDesk.Core -> C:\Users\zhou\Projects\desk\src\GlassDesk.Core\bin\Release\net10.0\GlassDesk.Core.dll
+  GlassDesk.Platform -> C:\Users\zhou\Projects\desk\src\GlassDesk.Platform\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Platform.dll
+  GlassDesk.AppServices -> C:\Users\zhou\Projects\desk\src\GlassDesk.AppServices\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.AppServices.dll
+  GlassDesk.UI -> C:\Users\zhou\Projects\desk\src\GlassDesk.UI\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.UI.dll
+  GlassDesk.Dock -> C:\Users\zhou\Projects\desk\src\GlassDesk.Dock\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Dock.dll
+  GlassDesk.Launcher -> C:\Users\zhou\Projects\desk\src\GlassDesk.Launcher\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Launcher.dll
+  GlassDesk.Settings -> C:\Users\zhou\Projects\desk\src\GlassDesk.Settings\bin\Release\net10.0-windows10.0.26100.0\GlassDesk.Settings.dll
+  GlassDesk.App -> C:\Users\zhou\Projects\desk\src\GlassDesk.App\bin\Release\net10.0-windows10.0.26100.0\win-x64\GlassDesk.dll
+  GlassDesk.App -> C:\Users\zhou\Projects\desk\artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\
+
+files: 271
+size:  195.6 MB
+
+executable: artifacts\publish\phase7-package-68907c353f8c44b9a57f47a6cfcf1c64\GlassDesk.exe
+
+== verify published build ==
+
+Publish succeeded.
