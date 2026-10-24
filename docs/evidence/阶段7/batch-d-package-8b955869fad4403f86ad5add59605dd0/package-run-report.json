@@ -1,0 +1,60 @@
+{
+    "schemaVersion":  1,
+    "status":  "Passed",
+    "commit":  "cf9589ac3b73610fbaff2b0366e775023f54b7cc",
+    "dirty":  true,
+    "startedAtUtc":  "2026-10-24T06:54:20.0890587Z",
+    "finishedAtUtc":  "2026-10-24T06:56:09.4758181Z",
+    "operatingSystem":  "Microsoft Windows NT 10.0.26200.0",
+    "powershellVersion":  "5.1.26100.8655",
+    "driver":  "build/package.ps1; static verifier does not launch installers",
+    "dataRoot":  "C:\\Users\\zhou\\AppData\\Local\\Temp\\GlassDesk-package-selftest-8b955869fad4403f86ad5add59605dd0",
+    "stagingDirectory":  "C:\\Users\\zhou\\Projects\\desk\\artifacts\\publish\\phase7-package-8b955869fad4403f86ad5add59605dd0",
+    "packageDirectory":  "C:\\Users\\zhou\\Projects\\desk\\artifacts\\package\\GlassDesk-1.5.0-win-x64-8b955869fad4403f86ad5add59605dd0",
+    "artifacts":  [
+                      {
+                          "relativePath":  "build-report.json",
+                          "length":  1982,
+                          "sha256":  "57ad5e6e8ba9e9c7b9ca18bd12be9b6fa845bb5fdc64c44223d3f252baabbc2d"
+                      },
+                      {
+                          "relativePath":  "GlassDesk-1.5.0-win-x64.zip",
+                          "length":  80208352,
+                          "sha256":  "101e7423862e0b5ae5c7c82b8152edc0151e2652309b84489ff41501d7366a0b"
+                      },
+                      {
+                          "relativePath":  "GlassDesk-1.5.0-win-x64-Setup.exe",
+                          "length":  60764799,
+                          "sha256":  "55cdd1314cf5d8d610764d889328073cdd4fb55e7f7f87050081718bc18e6c99"
+                      },
+                      {
+                          "relativePath":  "INNO-SETUP-LICENSE.txt",
+                          "length":  1521,
+                          "sha256":  "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c"
+                      },
+                      {
+                          "relativePath":  "payload-manifest.json",
+                          "length":  71351,
+                          "sha256":  "eb795b0caffbdb8e6a221562d13e27138c188a6be173d7eb750f1f89c500aff3"
+                      },
+                      {
+                          "relativePath":  "SHA256SUMS.json",
+                          "length":  1575,
+                          "sha256":  "85f29774d871cc9ac5f9ac0a1c6f5ff3024b8cba71c6aa77307c7ca0823aa82a"
+                      },
+                      {
+                          "relativePath":  "toolchain.json",
+                          "length":  929,
+                          "sha256":  "796ecbedca3d5757372ee61b4e894dca12638bd2adc62ee8ec1ab2bc27d40486"
+                      }
+                  ],
+    "counts":  {
+                   "Passed":  1,
+                   "Failed":  0,
+                   "Blocked":  0,
+                   "NotRun":  0,
+                   "Skipped":  0
+               },
+    "exitCode":  0,
+    "error":  null
+}
