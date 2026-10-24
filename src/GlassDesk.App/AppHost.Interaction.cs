@@ -39,7 +39,7 @@ internal sealed partial class AppHost
 
     private void InitializeInteractionController()
     {
-        if (_data is null || _messageWindow is null || _launcher is null || _settings is null) return;
+        if (_data is null || _messageWindow is null) return;
         _interaction = new InteractionController(
             _data,
             _primaryDisplaySession ?? throw new InvalidOperationException("Primary Display must be captured before interaction starts."),
@@ -49,18 +49,14 @@ internal sealed partial class AppHost
             ExecuteInteraction,
             ReportInteractionError);
 
-        _launcher.NavigationAvailabilityChanged += OnLauncherNavigationAvailabilityChanged;
-        _interaction.SetLauncherAvailability(_launcher.IsVisible, _launcher.CanNavigatePages);
-        _settings.InteractionSettingsApply = ApplyInteractionSettings;
-        _settings.DesktopIconsRead = _interaction.ReadDesktopIcons;
-        _settings.DesktopIconsSet = _interaction.SetDesktopIcons;
-        _settings.DataRestored += OnSettingsDataRestored;
-        _settings.UserDataDeletionRequested += OnSettingsUserDataDeletionRequested;
-        _settings.UninstallRequested += OnSettingsUninstallRequested;
+        // 控制器与窗口的接线：此刻已经建出来的窗口立即接上，
+        // 之后才构造的那些由 Ensure* 里的 Wire* 负责。
+        if (_launcher is not null) WireLauncherForInteraction(_launcher);
+        if (_settings is not null) WireSettingsForInteraction(_settings);
 
         var error = _interaction.Initialize();
         if (error is not null) ReportInteractionError(error);
-        else _settings.ShowInteractionStatus("快捷操作服务已就绪。");
+        else _settings?.ShowInteractionStatus("快捷操作服务已就绪。");
         ApplyDisplayRuntimeSettings(_data.Settings.Current.Display);
 
         SystemEvents.DisplaySettingsChanged += OnSystemDisplaySettingsChanged;

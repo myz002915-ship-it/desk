@@ -72,6 +72,9 @@ internal sealed partial class AppHost : IDisposable
     private bool _shuttingDown;
     private bool _disposed;
     private readonly DeferredCommandGate _deferredCommandGate = new();
+    private readonly StartupTimeline _startupTimeline = new();
+    private BitmapSource? _windowIcon;
+    private int _timelineLogged;
 
     public AppHost(Application application, CommandLineOptions options)
     {
@@ -144,21 +147,23 @@ internal sealed partial class AppHost : IDisposable
         _primaryDisplaySession = new PrimaryDisplaySession(startupPrimary);
 
         var theme = ThemeService.Initialize(_application.Dispatcher);
+        _startupTimeline.Mark("主题服务就绪");
 
         _data = new GlassDeskDataStore(AppPaths.ForCurrentUser());
         _loadReport = _data.LoadAll();
         _backdropDiagnostics = GlassDesk.UI.BackdropRecovery.BeginAutomaticDiagnostics(_data.Paths.LogDirectory);
+        _startupTimeline.Mark("用户数据加载完成");
 
         // 应用服务（导入、启动、图标、失效复查）在这里建一次，
         // 之后由各个窗口共用一个实例。界面上没有任何一处直接碰文件、进程或窗口句柄，
         // 这条结构规则从阶段 3 起就是靠这个入口维持的。
         _services = new AppServiceHost(_data);
 
-        // 先把「目标还在不在」复查一遍。用户可能在上次运行之后删掉了某个程序，
-        // 或者把移动硬盘拔了；条目不删、只标记，所以这一步是幂等的。
-        // 只有状态真的变了才会写文件，因此正常启动不会改动应用库。
-        _missingReport = _services.Maintenance.RefreshMissingTargets();
-
+        // 「目标还在不在」的复查（逐条 File.Exists）与运行状态枚举都不在首帧关键路径上：
+        // 前者在条目指向网络路径或已拔掉的移动盘时会阻塞数秒，后者的 EnumWindows 加上
+        // 每进程映像路径查询也要几十毫秒。两者都改到首帧之后执行（见
+        // ScheduleDeferredStartupWork），磁贴与状态点在结果到达后自行刷新。
+        //
         // 在创建任何窗口之前先采用已存的外观设置，这样第一次绘制就是对的。
         var appearance = _data.Settings.Current.Appearance;
         ApplySampleOverride(appearance, _options.Sample);
@@ -170,22 +175,24 @@ internal sealed partial class AppHost : IDisposable
         _dockSettings = DockSettingsHost.Initialize(_application.Dispatcher);
         _dockSettings.Update(_data.Settings.Current.Dock);
 
-        // 运行状态跟踪也要在磁贴构建之前完成初始枚举：
-        // 「Dock 启动之前就在运行的应用」只有这样才能在第一次绘制时就有状态点。
-        _services.Running.Start();
-
         CreateMessageWindow();
         CreateTrayIcon();
+        _startupTimeline.Mark("托盘就绪");
 
         CreateWindows();
         InitializePerformanceCoordinator();
         InitializeInteractionController();
+        _startupTimeline.Mark("宿主初始化完成");
 
         theme.Changed += OnThemeChanged;
 
         WriteStartupLog();
 
         InitializeUpdates();
+
+        // 首帧之后再补做两件与「第一次画出程序坞」无关的事：目标失效复查、运行状态首次枚举，
+        // 以及启动台窗口的预热（第一次打开时不必再解析 XAML）。
+        ScheduleDeferredStartupWork();
 
         return StartupOutcome.Started;
     }
@@ -278,7 +285,7 @@ internal sealed partial class AppHost : IDisposable
 
     private void ShowLauncher(PixelRect? sourceBounds)
     {
-        if (_launcher is null || _primaryDisplaySession?.IsAvailable != true)
+        if (_primaryDisplaySession?.IsAvailable != true)
         {
             return;
         }
@@ -286,10 +293,11 @@ internal sealed partial class AppHost : IDisposable
         RequestPerformanceActivation();
         try
         {
-            _launcher.RefreshDiagnostics();
+            var launcher = EnsureLauncher();
+            launcher.RefreshDiagnostics();
             _dock?.SetLauncherContainerState(true);
-            _launcher.ShowWithTransition(sourceBounds ?? _dock?.GetLauncherButtonPixelBounds());
-            _launcher.Activate();
+            launcher.ShowWithTransition(sourceBounds ?? _dock?.GetLauncherButtonPixelBounds());
+            launcher.Activate();
         }
         finally
         {
@@ -302,23 +310,24 @@ internal sealed partial class AppHost : IDisposable
 
     private void ShowSettings()
     {
-        if (_settings is null || _primaryDisplaySession?.IsAvailable != true)
+        if (_primaryDisplaySession?.IsAvailable != true)
         {
             return;
         }
 
-        _settings.RefreshDiagnostics(_loadReport);
-        _settings.RefreshStartupRegistration();
-        _settings.RefreshInstallationStatus(() =>
+        var settings = EnsureSettingsWindow();
+        settings.RefreshDiagnostics(_loadReport);
+        settings.RefreshStartupRegistration();
+        settings.RefreshInstallationStatus(() =>
             new InstallationLocator().Inspect(Environment.ProcessPath ?? string.Empty));
 
-        if (!_settings.IsVisible)
+        if (!settings.IsVisible)
         {
-            _settings.PositionOnPrimary();
-            _settings.Show();
+            settings.PositionOnPrimary();
+            settings.Show();
         }
 
-        _settings.Activate();
+        settings.Activate();
     }
 
     private void ExitApplication()
@@ -348,29 +357,25 @@ internal sealed partial class AppHost : IDisposable
 
     private void CreateWindows()
     {
-        _dock = new DockWindow();
-        _launcher = new LauncherWindow();
         var primaryDisplay = _primaryDisplaySession
             ?? throw new InvalidOperationException("Primary Display must be captured before creating GlassDesk windows.");
-        _dock.BindPrimaryDisplay(primaryDisplay);
-        _launcher.BindPrimaryDisplay(primaryDisplay);
-        _launcher.ContainerAnchorProvider = () => _dock?.GetLauncherButtonPixelBounds();
-        _launcher.IsVisibleChanged += (_, e) => _dock?.SetLauncherContainerState(e.NewValue is true);
-        _settings = new SettingsWindow();
-        _settings.BindPrimaryDisplay(primaryDisplay);
 
-        _settings.AttachDataStore(_data!, _loadReport);
-        _settings.DiagnosticsExportRequested += async (_, _) => await ExportDiagnosticsAsync();
-        _settings.AttachStartupRegistration(
-            new StartupRegistration(),
-            Environment.ProcessPath ?? string.Empty);
-        _settings.AttachInstallation(new InstallationLocator().Inspect(Environment.ProcessPath ?? string.Empty));
+        // 首帧只需要 Dock：启动台与设置窗口都改成首次使用时才构造
+        // （见 EnsureLauncher / EnsureSettingsWindow）。在此之前，两张窗口的
+        // XAML 解析、数据绑定与图片解码都白付了一遍，用户却看不到它们。
+        _dock = new DockWindow();
+        _dock.BindPrimaryDisplay(primaryDisplay);
+        _dock.Icon = WindowIcon;
+
+        // 一次误触的关闭请求（比如在程序坞上按 Alt+F4）不能把产品带下线；
+        // 退出是托盘菜单的职责。
+        _dock.Closing += OnWindowClosing;
+
+        // EnsureLauncher 让「第一次点启动台图标」也能正常工作：
+        // 之前窗口是预先建好的，现在必须在这里补上。
         _dock.AttachServices(_services!, _dockSettings!, (PixelRect? source) =>
-            ToggleLauncherFromDock(_launcher, source, ShowLauncher));
+            ToggleLauncherFromDock(EnsureLauncher(), source, ShowLauncher));
         _dock.ToggleDesktopIcons = () => ExecuteInteraction(GlassDesk.Core.Input.InputAction.ToggleDesktopIcons);
-        _launcher.AttachServices(_services!, _loadReport?.LibraryStatus != LoadStatus.Unrecoverable);
-        _launcher.InternalDragStarted += (_, _) => _dock?.RaiseAboveLauncherDuringDrag();
-        _launcher.InternalDragFinished += (_, _) => _launcher?.RaiseAboveDockAfterDrag();
         _services!.LibraryChanged += (_, _) =>
         {
             if (_application.Dispatcher.CheckAccess())
@@ -380,21 +385,11 @@ internal sealed partial class AppHost : IDisposable
             else
                 _application.Dispatcher.BeginInvoke(RefreshLibraryForPerformance);
         };
-        _settings.LauncherSettingsChanged += (_, settings) => _launcher?.ApplySettings(settings);
 
-        _launcher.ApplySettings(_data!.Settings.Current.Launcher);
-
-        var icon = CreateWindowIcon();
-        foreach (Window window in new Window[] { _dock, _launcher, _settings })
-        {
-            window.Icon = icon;
-
-            // 一次误触的关闭请求（比如在程序坞上按 Alt+F4）不能把产品带下线；
-            // 退出是托盘菜单的职责。
-            window.Closing += OnWindowClosing;
-        }
+        _startupTimeline.Mark("程序坞窗口创建");
 
         _dock.Show();
+        _startupTimeline.Mark("程序坞已请求显示");
 
         if (StartupIntent.ShouldOpenLauncher(_options))
         {
@@ -411,6 +406,9 @@ internal sealed partial class AppHost : IDisposable
     {
         return TrayIconArtwork.RenderBitmap(32);
     }
+
+    /// <summary>窗口图标只栅格化一次，供三个窗口复用。</summary>
+    private BitmapSource WindowIcon => _windowIcon ??= CreateWindowIcon();
 
     private void CreateMessageWindow()
     {
@@ -603,10 +601,13 @@ internal sealed partial class AppHost : IDisposable
 
         _tray.Update(TrayIconArtwork.CreateHandle(32), "GlassDesk");
 
-        var icon = CreateWindowIcon();
-        foreach (Window window in new Window[] { _dock!, _launcher!, _settings! })
+        _windowIcon = CreateWindowIcon();
+        foreach (Window? window in new Window?[] { _dock, _launcher, _settings })
         {
-            window.Icon = icon;
+            if (window is not null)
+            {
+                window.Icon = _windowIcon;
+            }
         }
     }
 
@@ -660,7 +661,10 @@ internal sealed partial class AppHost : IDisposable
 
         var withArguments = _data.Library.Items.Count(entry => entry is not null && !string.IsNullOrEmpty(entry.Arguments));
         lines.Add($"  带启动参数：{withArguments} 条");
-        lines.Add($"  缓存图标：{_services?.Icons.FileCount ?? 0} 个");
+        // 图标缓存数量靠枚举缓存目录得到，属于纯诊断信息，不再占用启动路径。
+        lines.Add("  启动耗时（自宿主创建起）：");
+        lines.AddRange(_startupTimeline.Describe(_timelineLogged));
+        _timelineLogged = _startupTimeline.Count;
 
         if (_loadReport?.HasNotices == true)
         {

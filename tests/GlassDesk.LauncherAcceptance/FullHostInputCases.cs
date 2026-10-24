@@ -38,7 +38,8 @@ internal static partial class Program
         {
             var result = hostType.GetMethod("Start")!.Invoke(host, null)!.ToString();
             if (result != "Started") throw new InvalidOperationException("Full AppHost did not start: " + result);
-            var window = (LauncherWindow)hostType.GetField("_launcher", instance)!.GetValue(host)!;
+            // 启动台窗口是按需构造的，验收里显式请求一个实例。
+            var window = (LauncherWindow)hostType.GetMethod("EnsureLauncher", instance)!.Invoke(host, null)!;
             // Discoverable by the supported computer-use client; other behavior stays production.
             window.ShowInTaskbar = true;
             hostType.GetMethod("ShowLauncher", instance, null, Type.EmptyTypes, null)!.Invoke(host, null);

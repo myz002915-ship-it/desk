@@ -47,8 +47,11 @@ internal sealed partial class AppHost
         _performanceDeadlineTimer.Tick += (_, _) => { _performanceDeadlineTimer.Stop(); ReconcilePerformance(); };
         _dock!.PerformanceSurfaceVisibilityChanged += OnPerformanceVisibilityChanged;
         _dock.IsVisibleChanged += OnPerformanceWindowVisibilityChanged;
-        _launcher!.IsVisibleChanged += OnPerformanceWindowVisibilityChanged;
-        _settings!.PerformanceSettingsChanged += OnPerformanceSettingsChanged;
+
+        // 启动台与设置窗口是按需构造的：此刻还没建出来的那些，
+        // 由各自的 Ensure* 在构造时补上订阅。
+        if (_launcher is not null) _launcher.IsVisibleChanged += OnPerformanceWindowVisibilityChanged;
+        if (_settings is not null) _settings.PerformanceSettingsChanged += OnPerformanceSettingsChanged;
         _performanceFullscreen = new PerformanceFullscreenMonitor(OnPerformanceForegroundObserved);
         ReconcilePerformance();
     }

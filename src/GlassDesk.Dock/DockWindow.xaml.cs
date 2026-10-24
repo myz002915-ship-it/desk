@@ -38,6 +38,16 @@ public partial class DockWindow : GlassWindow
     /// <summary>自动隐藏与滑动的公共帧间隔。</summary>
     private static readonly TimeSpan FrameInterval = TimeSpan.FromMilliseconds(16);
 
+    /// <summary>尚未附加宿主时使用的默认设置；只读，避免每次取用都新建一份模型。</summary>
+    private static readonly DockSettings DefaultDockSettings = new();
+
+    /// <summary>磁贴图标缓存上限，超过就整体清空——Dock 上的条目数量级远小于这个值。</summary>
+    private const int IconCacheLimit = 256;
+
+    /// <summary>图标缓存：路径 → (最后写入时刻, 已冻结的位图)。</summary>
+    private readonly Dictionary<string, (DateTime Stamp, BitmapImage Image)> _iconCache =
+        new(StringComparer.OrdinalIgnoreCase);
+
     private AppServiceHost? _services;
     private DockSettingsHost? _dockSettings;
     private Action<PixelRect?>? _toggleLauncher;
@@ -365,7 +375,7 @@ public partial class DockWindow : GlassWindow
     }
 
     /// <summary>生效中的程序坞设置；尚未附加宿主时是默认值。</summary>
-    public DockSettings Settings => _dockSettings?.Settings ?? new DockSettings();
+    public DockSettings Settings => _dockSettings?.Settings ?? DefaultDockSettings;
 
     /// <summary>
     /// 当前磁贴总数（固定项 + 三个内置入口）。诊断与测试用。
@@ -582,7 +592,7 @@ public partial class DockWindow : GlassWindow
 
         if (!string.IsNullOrEmpty(custom) && File.Exists(custom))
         {
-            return LoadBitmap(custom);
+            return LoadIconCached(custom);
         }
 
         if (_services is null || string.IsNullOrEmpty(entry.IconSource))
@@ -596,7 +606,51 @@ public partial class DockWindow : GlassWindow
             cached = _services.Icons.EnsureFor(entry.IconSource)?.Path ?? cached;
         }
 
-        return File.Exists(cached) ? LoadBitmap(cached) : null;
+        return File.Exists(cached) ? LoadIconCached(cached) : null;
+    }
+
+    /// <summary>
+    /// 按路径复用已解码并冻结的图标位图。
+    /// </summary>
+    /// <remarks>
+    /// 磁贴行是整行重建的（拖放提交、设置变更、休眠唤醒），每次重建都会逐枚图标
+    /// 走一遍 PNG 解码。解码结果本身是冻结的、不可变的，按「路径 + 最后写入时刻」
+    /// 缓存就能把重复刷新从「N 次解码」降成「N 次文件时间戳查询」；
+    /// 用户替换了同名图标文件时，时间戳变化会让缓存失效。
+    /// </remarks>
+    private BitmapImage? LoadIconCached(string path)
+    {
+        DateTime stamp;
+
+        try
+        {
+            stamp = File.GetLastWriteTimeUtc(path);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            return LoadBitmap(path);
+        }
+
+        if (_iconCache.TryGetValue(path, out var hit) && hit.Stamp == stamp)
+        {
+            return hit.Image;
+        }
+
+        var image = LoadBitmap(path);
+
+        if (image is null)
+        {
+            _iconCache.Remove(path);
+            return null;
+        }
+
+        if (_iconCache.Count >= IconCacheLimit)
+        {
+            _iconCache.Clear();
+        }
+
+        _iconCache[path] = (stamp, image);
+        return image;
     }
 
     private static BitmapImage? LoadBitmap(string path)

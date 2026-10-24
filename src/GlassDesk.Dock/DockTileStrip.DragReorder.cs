@@ -79,7 +79,10 @@ public sealed partial class DockTileStrip : Border
                 UnpinRequested?.Invoke(this, draggedEntryId);
             }
 
-            if (action != DragEndAction.KeepCommitted || !_reorder.IsActive)
+            // KeepCommitted 说明 OnDrop 已经提交过一次，并已经通知宿主刷新；
+            // 这里只在预览仍然挂着（没走到 Commit）时再补一次通知，
+            // 否则每次成功拖放都会把整行磁贴重建两边、图标解码两遍。
+            if (action != DragEndAction.KeepCommitted || _reorder.IsActive)
             {
                 ReorderFinished?.Invoke(this, EventArgs.Empty);
             }
@@ -268,11 +271,12 @@ public sealed partial class DockTileStrip : Border
             return 0;
         }
 
-        var geometry = DockMagnification.Compute(_models.Count, _iconSize, _spacing, _peak, null);
-
+        // 拖动时没有放大（指针位置传 null），槽位中心与磁贴总数无关，
+        // 因此不必为「插入到哪」分配一整份几何数组：逐槽位算中心即可。
+        // OLE 拖拽每秒可能派发上百次 DragOver，这里的分配是实打实的。
         for (var index = 0; index < AppTileCount; index++)
         {
-            if (contentPosition < geometry[index].Center)
+            if (contentPosition < DockMagnification.SlotCenter(index, _iconSize, _spacing, _peak))
             {
                 return index;
             }

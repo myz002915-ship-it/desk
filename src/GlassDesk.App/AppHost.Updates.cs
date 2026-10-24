@@ -22,8 +22,10 @@ internal sealed partial class AppHost
 
     private void InitializeUpdates()
     {
-        _settings!.CheckForUpdatesRequested += async (_, _) => await CheckUpdatesAsync(manual: true);
-        _settings.ShowUpdateStatus(AppInfo.Version, $"当前版本 {AppInfo.FullLabel}。启动时会自动检查新版本，也可以手动检查。");
+        // 设置窗口是按需构造的：已经建出来的现在就接线，
+        // 还没建的由 EnsureSettingsWindow 在构造时调用同一个方法。
+        if (_settings is not null) WireSettingsForUpdates(_settings);
+
         // Only the installed normal application contacts the service automatically; build/acceptance copies do not.
         if (_options.Sample == Startup.AppearanceSample.None && new InstallationLocator().Inspect(Environment.ProcessPath ?? string.Empty).State == InstallationState.VerifiedInstalled)
             _application.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(async () => await CheckUpdatesAsync(manual: false)));

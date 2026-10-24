@@ -65,7 +65,8 @@ internal static partial class Program
             Phase("startup");
             var started = hostType.GetMethod("Start")!.Invoke(host, null)!.ToString();
             if (started != "Started") throw new InvalidOperationException("Full AppHost did not start: " + started);
-            launcher = (LauncherWindow)hostType.GetField("_launcher", PerformanceInstance)!.GetValue(host)!;
+            // 启动台窗口是按需构造的，验收里显式请求一个实例。
+            launcher = (LauncherWindow)hostType.GetMethod("EnsureLauncher", PerformanceInstance)!.Invoke(host, null)!;
             dock = (Window)hostType.GetField("_dock", PerformanceInstance)!.GetValue(host)!;
             UseProductCaptureWorkers();
             launcher.ShowInTaskbar = true;

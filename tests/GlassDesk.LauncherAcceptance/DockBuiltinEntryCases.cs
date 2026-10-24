@@ -38,9 +38,10 @@ internal static partial class Program
         {
             var started = hostType.GetMethod("Start")!.Invoke(host, null)?.ToString();
             if (started != "Started") throw new InvalidOperationException("AppHost did not start: " + started);
-            settings = (SettingsWindow)hostType.GetField("_settings", flags)!.GetValue(host)!;
+            // 设置与启动台窗口是按需构造的，验收里显式请求一个实例。
+            settings = (SettingsWindow)hostType.GetMethod("EnsureSettingsWindow", flags)!.Invoke(host, null)!;
             var dock = (DockWindow)hostType.GetField("_dock", flags)!.GetValue(host)!;
-            var launcher = (LauncherWindow)hostType.GetField("_launcher", flags)!.GetValue(host)!;
+            var launcher = (LauncherWindow)hostType.GetMethod("EnsureLauncher", flags)!.Invoke(host, null)!;
             var data = (GlassDeskDataStore)hostType.GetField("_data", flags)!.GetValue(host)!;
             originalIcons = settings.DesktopIconsRead?.Invoke();
             if (args.Contains("--desktop-icon-continuity"))
