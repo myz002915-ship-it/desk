@@ -33,7 +33,7 @@ internal sealed partial class AppHost
 
     private UpdateClient CreateUpdateClient()
     {
-        const string defaultSource = "https://api.github.com/repos/everlosttime/glassdesk-updates/releases/latest";
+        const string defaultSource = "https://api.github.com/repos/myz002915-ship-it/desk/releases/latest";
         var file = Path.Combine(AppContext.BaseDirectory, "update-source.json");
         var sources = new List<Uri> { new(defaultSource) };
         if (File.Exists(file))
