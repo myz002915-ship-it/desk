@@ -14,9 +14,9 @@
     DragOver="OnExternalDragOver">
   <controls:GlassWindow.Resources>
     <Style x:Key="FolderActionButton" TargetType="Button">
-      <Setter Property="Background" Value="#14FFFFFF" />
+      <Setter Property="Background" Value="{Binding HoverOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
       <Setter Property="Foreground" Value="{Binding ForegroundBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
-      <Setter Property="BorderBrush" Value="#32FFFFFF" />
+      <Setter Property="BorderBrush" Value="{Binding PanelBorderBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
       <Setter Property="Padding" Value="12,6" />
       <Setter Property="Cursor" Value="Hand" />
       <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -27,7 +27,9 @@
               <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </controls:PhoneBorder>
             <ControlTemplate.Triggers>
-              <Trigger Property="IsMouseOver" Value="True"><Setter Property="Background" Value="#2CFFFFFF" /></Trigger>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{Binding PressedOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
+              </Trigger>
               <Trigger Property="IsPressed" Value="True"><Setter Property="Opacity" Value=".7" /></Trigger>
             </ControlTemplate.Triggers>
           </ControlTemplate>
@@ -76,8 +78,16 @@
               <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
             </controls:PhoneBorder>
             <ControlTemplate.Triggers>
-              <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="TileChrome" Property="Background" Value="#10FFFFFF" /></Trigger>
-              <Trigger Property="IsPressed" Value="True"><Setter TargetName="TileChrome" Property="Background" Value="#18FFFFFF" /></Trigger>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TileChrome" Property="Background"
+                        Value="{Binding HoverOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
+                <Setter TargetName="TileChrome" Property="BorderBrush"
+                        Value="{Binding PanelBorderBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
+              </Trigger>
+              <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="TileChrome" Property="Background"
+                        Value="{Binding PressedOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
+              </Trigger>
             </ControlTemplate.Triggers>
           </ControlTemplate>
         </Setter.Value>
@@ -104,7 +114,7 @@
       <DockPanel x:Name="SearchHeader" Grid.Row="0" LastChildFill="True" Margin="0,0,0,20" MaxWidth="600">
         <Button DockPanel.Dock="Right" Content="添加" AutomationProperties.Name="添加应用"
                 Click="OnAddClick" Height="36" MinWidth="72" Padding="16,0" Margin="8,0,0,0"
-                Background="#12FFFFFF"
+                Background="{Binding HoverOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}"
                 BorderBrush="{Binding PanelBorderBrush, RelativeSource={RelativeSource AncestorType=Window}}"
                 BorderThickness="1"
                 Foreground="{Binding ForegroundBrush, RelativeSource={RelativeSource AncestorType=Window}}">
@@ -119,7 +129,8 @@
               </controls:PhoneBorder>
               <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                  <Setter TargetName="CapsuleChrome" Property="Background" Value="#24FFFFFF" />
+                  <Setter TargetName="CapsuleChrome" Property="Background"
+                          Value="{Binding PressedOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}" />
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                   <Setter TargetName="CapsuleChrome" Property="Opacity" Value="0.72" />
@@ -131,13 +142,31 @@
             </ControlTemplate>
           </Button.Template>
         </Button>
-        <controls:PhoneBorder Height="36" CornerRadius="18" Padding="11,0" Background="#0CFFFFFF"
+        <controls:PhoneBorder Height="36" CornerRadius="18" Padding="11,0"
+                Background="{Binding HoverOverlayBrush, RelativeSource={RelativeSource AncestorType=Window}}"
                 BorderBrush="{Binding PanelBorderBrush, RelativeSource={RelativeSource AncestorType=Window}}"
                 BorderThickness="1" SnapsToDevicePixels="True">
-          <TextBox x:Name="SearchBox" Height="32" FontSize="15" VerticalContentAlignment="Center"
-                   Background="Transparent" BorderThickness="0" Padding="0"
-                   AutomationProperties.Name="搜索应用" ToolTip="搜索中文、英文、拼音或别名"
-                   TextChanged="OnSearchChanged" />
+          <Grid>
+            <!-- 空输入时的水印：搜索框本身没有提示文字的余地，靠一层不可命中的文本补上。 -->
+            <TextBlock x:Name="SearchPlaceholder" Text="搜索应用" IsHitTestVisible="False"
+                       VerticalAlignment="Center" FontSize="15" Opacity=".55"
+                       Foreground="{Binding SecondaryForegroundBrush, RelativeSource={RelativeSource AncestorType=Window}}">
+              <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                  <Setter Property="Visibility" Value="Collapsed" />
+                  <Style.Triggers>
+                    <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                      <Setter Property="Visibility" Value="Visible" />
+                    </DataTrigger>
+                  </Style.Triggers>
+                </Style>
+              </TextBlock.Style>
+            </TextBlock>
+            <TextBox x:Name="SearchBox" Height="32" FontSize="15" VerticalContentAlignment="Center"
+                     Background="Transparent" BorderThickness="0" Padding="0"
+                     AutomationProperties.Name="搜索应用" ToolTip="搜索中文、英文、拼音或别名"
+                     TextChanged="OnSearchChanged" />
+          </Grid>
         </controls:PhoneBorder>
       </DockPanel>
       <Grid Grid.Row="1">

@@ -62,6 +62,9 @@ public sealed partial class DockTileStrip : Border
     private readonly List<DockTileModel> _models = [];
     private readonly List<Border> _tiles = [];
 
+    /// <summary>每枚磁贴的悬停高光层，与 <see cref="_tiles"/> 一一对应。</summary>
+    private readonly List<Border> _highlights = [];
+
     private readonly DockRenderLoop _animationLoop;
     private bool _pointerActive;
     private double _pointerPosition = double.NaN;
@@ -220,6 +223,7 @@ public sealed partial class DockTileStrip : Border
 
         _canvas.Children.Clear();
         _tiles.Clear();
+        _highlights.Clear();
 
         for (var index = 0; index < _models.Count; index++)
         {
@@ -285,6 +289,7 @@ public sealed partial class DockTileStrip : Border
     {
         FrameworkElement body;
 
+
         if (model.Icon is { } iconSource)
         {
             var icon = new Image
@@ -327,8 +332,23 @@ public sealed partial class DockTileStrip : Border
         Bind(dot, System.Windows.Shapes.Shape.FillProperty, model, nameof(DockTileModel.DotBrush));
         Bind(dot, VisibilityProperty, model, nameof(DockTileModel.RunningVisibility));
 
+        // 图标下面垫一层悬停高光：静止时完全透明，指针悬停时随放大一起浮现。
+        // 用负外边距把它撑出图标轮廓外一点，看起来是「图标被托起来」，而不是被框住。
+        var highlight = new Border
+        {
+            CornerRadius = new CornerRadius(14),
+            Margin = new Thickness(-6),
+            Background = ThemeService.Current?.Palette.HoverOverlayBrush,
+            Opacity = 0,
+            IsHitTestVisible = false,
+        };
+        var bodyHost = new Grid();
+        _ = bodyHost.Children.Add(highlight);
+        _ = bodyHost.Children.Add(body);
+        _highlights.Add(highlight);
+
         var content = new StackPanel();
-        _ = content.Children.Add(body);
+        _ = content.Children.Add(bodyHost);
         _ = content.Children.Add(dot);
 
         var tile = new Border
@@ -515,6 +535,8 @@ public sealed partial class DockTileStrip : Border
         DockMagnification.ComputeInto(_paintedGeometry, _iconSize, _spacing, _peak, pointerPosition);
         ApplyHoveredPeak(_paintedGeometry, pointerPosition);
         PaintGeometry(_paintedGeometry);
+        // 非动画帧（复位、静态重绘）上高光不做插值，直接对齐当前悬停目标。
+        _ = PaintHighlights(deltaSeconds: 0, animate: false);
     }
 
     private bool AnimateFrame(double? pointerPosition, double deltaSeconds)
@@ -542,7 +564,45 @@ public sealed partial class DockTileStrip : Border
         }
 
         PaintGeometry(geometry);
-        return allSettled;
+        var highlightsSettled = PaintHighlights(deltaSeconds, animate: true);
+        return allSettled && highlightsSettled;
+    }
+
+    /// <summary>
+    /// 让每枚磁贴的悬停高光淡入淡出。
+    /// </summary>
+    /// <remarks>
+    /// 只有被指针指到的那一枚点亮，淡出同样走帧循环，因此指针横扫过整行时
+    /// 高光是依次亮起又依次熄灭，而不是逐帧闪烁。
+    /// 返回是否全部到位——帧循环据此决定什么时候停。
+    /// </remarks>
+    private bool PaintHighlights(double deltaSeconds, bool animate)
+    {
+        var settled = true;
+
+        for (var index = 0; index < _highlights.Count && index < _models.Count; index++)
+        {
+            var target = index == _hoveredTileIndex ? 1.0 : 0.0;
+            var highlight = _highlights[index];
+            var current = highlight.Opacity;
+            var next = animate ? DockHoverScale.Advance(current, target, deltaSeconds) : target;
+
+            if (next != target)
+            {
+                settled = false;
+            }
+
+            if (Math.Abs(current - next) > 0.0005)
+            {
+                highlight.Opacity = next;
+            }
+            else if (!animate && current != next)
+            {
+                highlight.Opacity = next;
+            }
+        }
+
+        return settled;
     }
 
     private void ApplyHoveredPeak(TileGeometry[] geometry, double? pointerPosition)

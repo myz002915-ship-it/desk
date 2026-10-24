@@ -29,7 +29,9 @@ public sealed class GlassPalette
         byte acrylicTintAlpha,
         Color panelBorder,
         Color foreground,
-        Color secondaryForeground)
+        Color secondaryForeground,
+        Color hoverOverlay,
+        Color pressedOverlay)
     {
         IsDark = isDark;
         Accent = accent;
@@ -40,6 +42,8 @@ public sealed class GlassPalette
         PanelBorder = panelBorder;
         Foreground = foreground;
         SecondaryForeground = secondaryForeground;
+        HoverOverlay = hoverOverlay;
+        PressedOverlay = pressedOverlay;
     }
 
     public bool IsDark { get; }
@@ -78,6 +82,18 @@ public sealed class GlassPalette
 
     public Color SecondaryForeground { get; }
 
+    /// <summary>
+    /// 指针悬停时叠在控件上的颜色。
+    /// </summary>
+    /// <remarks>
+    /// 浅色主题必须用暗色叠加、深色主题用亮色叠加。早先启动台把悬停写死成
+    /// <c>#10FFFFFF</c>，在浅色玻璃上等于什么都没画——悬停完全没有反馈。
+    /// </remarks>
+    public Color HoverOverlay { get; }
+
+    /// <summary>按下时叠在控件上的颜色，比 <see cref="HoverOverlay"/> 更重一档。</summary>
+    public Color PressedOverlay { get; }
+
     public SolidColorBrush AccentBrush => CreateFrozenBrush(Accent);
 
     public Brush PanelBorderBrush => CreateBorderBrush();
@@ -85,6 +101,10 @@ public sealed class GlassPalette
     public SolidColorBrush ForegroundBrush => CreateFrozenBrush(Foreground);
 
     public SolidColorBrush SecondaryForegroundBrush => CreateFrozenBrush(SecondaryForeground);
+
+    public SolidColorBrush HoverOverlayBrush => CreateFrozenBrush(HoverOverlay);
+
+    public SolidColorBrush PressedOverlayBrush => CreateFrozenBrush(PressedOverlay);
 
     /// <summary>取该用的那层填充。</summary>
     /// <param name="acrylicApplied">是否真的拿到了背景模糊。</param>
@@ -113,7 +133,9 @@ public sealed class GlassPalette
                 acrylicTintAlpha: 0x18,
                 panelBorder: Color.FromArgb(0x26, 0xFF, 0xFF, 0xFF),
                 foreground: Color.FromRgb(0xF2, 0xF2, 0xF7),
-                secondaryForeground: Color.FromArgb(0xB3, 0xF2, 0xF2, 0xF7));
+                secondaryForeground: Color.FromArgb(0xB3, 0xF2, 0xF2, 0xF7),
+                hoverOverlay: Color.FromArgb(0x1F, 0xFF, 0xFF, 0xFF),
+                pressedOverlay: Color.FromArgb(0x36, 0xFF, 0xFF, 0xFF));
         }
 
         return new GlassPalette(
@@ -128,7 +150,9 @@ public sealed class GlassPalette
             acrylicTintAlpha: 0x20,
             panelBorder: Color.FromArgb(0x59, 0xFF, 0xFF, 0xFF),
             foreground: Color.FromRgb(0x1C, 0x1C, 0x1E),
-            secondaryForeground: Color.FromArgb(0xB3, 0x1C, 0x1C, 0x1E));
+            secondaryForeground: Color.FromArgb(0xB3, 0x1C, 0x1C, 0x1E),
+            hoverOverlay: Color.FromArgb(0x14, 0x1C, 0x1C, 0x1E),
+            pressedOverlay: Color.FromArgb(0x26, 0x1C, 0x1C, 0x1E));
     }
 
     /// <summary>

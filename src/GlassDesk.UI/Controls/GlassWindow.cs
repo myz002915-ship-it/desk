@@ -112,6 +112,18 @@ public abstract class GlassWindow : Window
         typeof(GlassWindow),
         new PropertyMetadata(null));
 
+    public static readonly DependencyProperty HoverOverlayBrushProperty = DependencyProperty.Register(
+        nameof(HoverOverlayBrush),
+        typeof(Brush),
+        typeof(GlassWindow),
+        new PropertyMetadata(null));
+
+    public static readonly DependencyProperty PressedOverlayBrushProperty = DependencyProperty.Register(
+        nameof(PressedOverlayBrush),
+        typeof(Brush),
+        typeof(GlassWindow),
+        new PropertyMetadata(null));
+
     protected GlassWindow()
     {
         WindowStyle = WindowStyle.None;
@@ -255,6 +267,20 @@ public abstract class GlassWindow : Window
     {
         get => (Brush?)GetValue(AccentBrushProperty);
         private set => SetValue(AccentBrushProperty, value);
+    }
+
+    /// <summary>指针悬停的叠加色（浅色主题为暗色、深色主题为亮色）。</summary>
+    public Brush? HoverOverlayBrush
+    {
+        get => (Brush?)GetValue(HoverOverlayBrushProperty);
+        private set => SetValue(HoverOverlayBrushProperty, value);
+    }
+
+    /// <summary>按下的叠加色，比 <see cref="HoverOverlayBrush"/> 重一档。</summary>
+    public Brush? PressedOverlayBrush
+    {
+        get => (Brush?)GetValue(PressedOverlayBrushProperty);
+        private set => SetValue(PressedOverlayBrushProperty, value);
     }
 
     /// <summary>本窗口最终采用的玻璃做法。诊断与样例以此为准。</summary>
@@ -650,6 +676,8 @@ public abstract class GlassWindow : Window
         ForegroundBrush = foreground;
         SecondaryForegroundBrush = UseLauncherTextBrightness ? foreground : palette.SecondaryForegroundBrush;
         AccentBrush = palette.AccentBrush;
+        HoverOverlayBrush = palette.HoverOverlayBrush;
+        PressedOverlayBrush = palette.PressedOverlayBrush;
         Foreground = foreground;
     }
 
