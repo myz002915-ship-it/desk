@@ -140,7 +140,7 @@ internal static class Program
         try
         {
             using var http = new HttpClient { Timeout = Timeout.InfiniteTimeSpan };
-            var source = new Uri("https://api.github.com/repos/everlosttime/glassdesk-updates/releases/latest");
+            var source = new Uri("https://api.github.com/repos/myz002915-ship-it/desk/releases/latest");
             var client = new UpdateClient(http, source);
             var expectedVersion = Version.Parse(System.Diagnostics.FileVersionInfo.GetVersionInfo(expectedInstaller).ProductVersion!.Trim());
             var release = await client.CheckAsync(previousVersion, CancellationToken.None);
@@ -153,7 +153,7 @@ internal static class Program
             {
                 // GlassDesk ships this release through its own download page: the updater must
                 // announce it and send the user to the release page instead of downloading.
-                if (release.ReleasePage.AbsoluteUri != $"https://github.com/everlosttime/glassdesk-updates/releases/tag/v{expectedVersion}")
+                if (release.ReleasePage.AbsoluteUri != $"https://github.com/myz002915-ship-it/desk/releases/tag/v{expectedVersion}")
                     throw new InvalidDataException($"Announcement points outside the release page: {release.ReleasePage}.");
                 results.Add("Release without a published installer is announced on its release page");
                 File.WriteAllText(Path.Combine(output, "network-report.json"), JsonSerializer.Serialize(new { passed = true, results, manualDownloadOnly = true }, new JsonSerializerOptions { WriteIndented = true }));
